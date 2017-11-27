@@ -1,0 +1,20 @@
+#version 130
+
+uniform mat4 view;
+uniform mat4 projection;
+uniform mat3 normalMatrix;
+
+//Vertex input attribs
+in vec3 vertex;
+in vec3 normal;
+
+//Fragment input params
+out vec3 frag_position;
+out vec3 frag_normal;
+
+
+void main(void) {
+    frag_normal = normalMatrix * normal;
+    frag_position = (view * vec4(vertex,1.0)).xyz;
+    gl_Position = projection * view * vec4(vertex,1.0);
+}
