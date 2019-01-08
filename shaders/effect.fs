@@ -36,7 +36,7 @@ void main(void) {
     vec3 normal = normalize(frag_normal);
     vec3 pos = frag_position;
     vec3 vdir = normalize(pos-eye.xyz);
-    vec4 color;
+    vec4 color = vec4(0.0,0.0,0.0,1.0);
     float R0 = ((nAir-nWater)/(nAir+nWater))*((nAir-nWater)/(nAir+nWater));
     for(int i=0;i<numLights;i++)
     {
